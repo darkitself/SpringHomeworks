@@ -6,19 +6,19 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-public class SecondBean implements BaseBean{
+public class ThirdBean implements BaseBean{
     @PostConstruct
     public void printAfterCreation() {
-        System.out.println("SecondBean with code " + this.hashCode() + " constructed");
+        System.out.println("ThirdBean with code " + this.hashCode() + " constructed");
     }
 
     @PreDestroy
     public void printBeforeDestruction() {
-        System.out.println("SecondBean with code " + this.hashCode() + " destroyed");
+        System.out.println("ThirdBean with code " + this.hashCode() + " destroyed");
     }
 
     @Override
     public void print() {
-        System.out.println("This is SecondBean");
+        System.out.println("This is ThirdBean");
     }
 }

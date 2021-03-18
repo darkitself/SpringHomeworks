@@ -1,26 +1,27 @@
 package com.example.demo;
 
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-@Scope(value = "prototype")
-public class FirstBean {
-
-    public String getName() {
-        return "FirstBean";
-    }
+@Primary
+public class FirstBean implements BaseBean {
 
     @PostConstruct
     public void printAfterCreation() {
-        System.out.print(getName() + " with code " + this.hashCode() + " constructed" + '\n');
+        System.out.println("FirstBean with code " + this.hashCode() + " constructed");
     }
 
     @PreDestroy
     public void printBeforeDestruction() {
-        System.out.print(getName() + " with code " + this.hashCode() + " destroyed" + '\n');
+        System.out.println("FirstBean with code " + this.hashCode() + " destroyed");
+    }
+
+    @Override
+    public void print() {
+        System.out.println("This is FirstBean");
     }
 }

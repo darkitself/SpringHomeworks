@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,16 +9,20 @@ import javax.annotation.PreDestroy;
 
 @Component
 public class MegaBean {
-    private FirstBean firstBean;
-    private SecondBean secondBean;
+    public BaseBean firstBean;
+    public BaseBean secondBean;
 
     @Autowired
-    MegaBean(FirstBean firstBean) {
+    @Qualifier("thirdBean")
+    public BaseBean thirdBean;
+
+    MegaBean(BaseBean firstBean) {
         this.firstBean = firstBean;
     }
 
     @Autowired
-    public void setSecondBean(SecondBean secondBean) {
+    @Qualifier("secondBean")
+    public void setSecondBean(BaseBean secondBean) {
         this.secondBean = secondBean;
     }
 
@@ -27,12 +32,11 @@ public class MegaBean {
 
     @PostConstruct
     public void printAfterCreation() {
-        System.out.print(getName() + " with code " + this.hashCode() + " constructed" + '\n');
+        System.out.println(getName() + " with code " + this.hashCode() + " constructed");
     }
 
     @PreDestroy
     public void printBeforeDestruction() {
-        firstBean.printBeforeDestruction();
-        System.out.print(getName() + " with code " + this.hashCode() + " destroyed" + '\n');
+        System.out.println(getName() + " with code " + this.hashCode() + " destroyed");
     }
 }
