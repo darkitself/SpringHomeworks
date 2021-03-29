@@ -1,0 +1,21 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  first-config: 1
+  second-config:
+    subconfig: dev_me
+    user: devLogin
+    ttl: 123s
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  first-config: 2
+  second-config:
+    subconfig: prod_me
+    user: prodLogin
+    ttl: 321s
