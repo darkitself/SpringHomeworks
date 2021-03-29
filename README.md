@@ -6,7 +6,7 @@
 >&nbsp;&nbsp;&nbsp;&nbsp;second-config:  
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subconfig: test_me  
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user: login  
->&nbsp;&nbsp;&nbsp;&nbsp;ttl: 123s  
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ttl: 123s  
 
 с помощью аннотации ConfigurationProperties и EnableConfigurationProperties в класс SimpleConfig  
 
