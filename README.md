@@ -15,7 +15,7 @@
 
 Задание конфигов должно быть в конфигурационных файлах для конкретного какого-то профиля. То есть в зависимости от выбрано профиля должны выводиться в лог разные значения    
 Необходимо сделать две реализации (DevSmsSender и ProdSmsSender) интерфейса:  
->interface SmsSender {
+>interface SmsSender {  
 >&nbsp;&nbsp;&nbsp;&nbsp;void send(String phoneNumber, String text);  
 >}  
 
