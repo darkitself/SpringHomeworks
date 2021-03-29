@@ -2,11 +2,11 @@
 
 Считать следующую конфигурацию:  
 >app:  
->    first-config: 1  
->    second-config:  
->        subconfig: test_me  
->        user: login  
->        ttl: 123s  
+>&nbsp;first-config: 1  
+>&nbsp;second-config:  
+>&nbsp;subconfig: test_me  
+>&nbsp;user: login  
+>&nbsp;ttl: 123s  
 
 с помощью аннотации ConfigurationProperties и EnableConfigurationProperties в класс SimpleConfig  
 
