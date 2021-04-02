@@ -1,10 +1,10 @@
 package com.example.thirdhomework.senders;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConditionalOnExpression("'${spring.profiles.active}'=='dev'")
+@Profile("dev")
 public class DevSmsSender implements SmsSender{
     @Override
     public void send(String phoneNumber, String text) {

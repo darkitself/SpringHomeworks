@@ -1,18 +1,24 @@
 package com.example.thirdhomework.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.boot.convert.DurationUnit;
 
 import java.text.MessageFormat;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 
-@Configuration
-@EnableConfigurationProperties
+@ConstructorBinding
 @ConfigurationProperties(prefix = "app")
-public class SimpleConfig {
-    private Integer firstConfig;
+public final class SimpleConfig {
 
-    private SecondConfig secondConfig;
+    private final Integer firstConfig;
+    private final SecondConfig secondConfig;
+
+    public SimpleConfig(Integer firstConfig, SecondConfig secondConfig) {
+        this.firstConfig = firstConfig;
+        this.secondConfig = secondConfig;
+    }
 
     public Integer getFirstConfig() {
         return firstConfig;
@@ -22,25 +28,23 @@ public class SimpleConfig {
         return secondConfig;
     }
 
-
-    public void setFirstConfig(Integer firstConfig) {
-        this.firstConfig = firstConfig;
-    }
-
-    public void setSecondConfig(SecondConfig secondConfig) {
-        this.secondConfig = secondConfig;
-    }
-
     @Override
     public String toString() {
         return MessageFormat.format("first-config: {0}\n second-config: \n\t subconfig: {1}\n\t user: {2}\n\t ttl: {3}\n",
-                firstConfig, secondConfig.subconfig, secondConfig.user, secondConfig.ttl);
+                firstConfig, secondConfig.subconfig, secondConfig.user, secondConfig.ttl.getSeconds());
     }
 
     public static class SecondConfig {
-        private String subconfig;
-        private String user;
-        private String ttl;
+        private final String subconfig;
+        private final String user;
+        @DurationUnit(ChronoUnit.SECONDS)
+        private final Duration ttl;
+
+        public SecondConfig(String subconfig, String user, Duration ttl) {
+            this.subconfig = subconfig;
+            this.user = user;
+            this.ttl = ttl;
+        }
 
         public String getSubconfig() {
             return subconfig;
@@ -50,20 +54,8 @@ public class SimpleConfig {
             return user;
         }
 
-        public String getTtl() {
+        public Duration getTtl() {
             return ttl;
-        }
-
-        public void setSubconfig(String subconfig) {
-            this.subconfig = subconfig;
-        }
-
-        public void setUser(String user) {
-            this.user = user;
-        }
-
-        public void setTtl(String ttl) {
-            this.ttl = ttl;
         }
     }
 }
