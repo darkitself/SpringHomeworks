@@ -10,8 +10,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-@Component
-@Scope(value = "prototype")
 public class Person {
     @DateIsValid
     @NotNull(message = "Birthday required to fill in")

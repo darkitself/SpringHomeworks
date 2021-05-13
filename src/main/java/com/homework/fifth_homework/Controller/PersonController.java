@@ -15,9 +15,6 @@ import javax.validation.Valid;
 @Validated
 @RestController
 public class PersonController {
-    @Autowired
-    Printer printer;
-
     @PostMapping("/createPerson")
     public ResponseEntity<Person> getJson(@Valid @RequestBody Person person)
     {
