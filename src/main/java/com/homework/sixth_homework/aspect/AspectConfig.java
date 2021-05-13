@@ -1,4 +1,4 @@
-package com.homework.sixth_homework.Config;
+package com.homework.sixth_homework.aspect;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -6,15 +6,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix = "app.aspect")
+@ConfigurationProperties(prefix = "app.config")
 public class AspectConfig {
-    private Integer executionTimes;
-
+    private Integer maxExecutionTimes;
     public Integer getExecutionTimes() {
-        return executionTimes;
+        return maxExecutionTimes;
     }
 
     public void setExecutionTimes(Integer maxExecutionTimes) {
-        this.executionTimes = maxExecutionTimes;
+        this.maxExecutionTimes = maxExecutionTimes;
     }
 }

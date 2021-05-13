@@ -1,6 +1,6 @@
-package com.homework.sixth_homework.Controller;
+package com.homework.sixth_homework.сontroller;
 
-import com.homework.sixth_homework.Annotation.CountExecutions;
+import com.homework.sixth_homework.annotation.CountExecutions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

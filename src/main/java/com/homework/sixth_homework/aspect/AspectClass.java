@@ -1,7 +1,6 @@
-package com.homework.sixth_homework.Aspect;
+package com.homework.sixth_homework.aspect;
 
-import com.homework.sixth_homework.Config.AspectConfig;
-import com.homework.sixth_homework.Controller.Controller;
+import com.homework.sixth_homework.сontroller.Controller;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,7 +22,7 @@ public class AspectClass {
         this.config = config;
     }
 
-    @Around("@annotation(com.homework.sixth_homework.Annotation.CountExecutions)")
+    @Around("@annotation(com.homework.sixth_homework.annotation.CountExecutions)")
     public String logMethodCall(ProceedingJoinPoint jp) throws Throwable {
         String methodName = jp.getSignature().getName();
         if (!counter.containsKey(methodName))
