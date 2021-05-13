@@ -1,9 +1,6 @@
-package com.homework.fifth_homework.Person;
+package com.homework.fifth_homework.person;
 
-import com.homework.fifth_homework.DateValidator.DateIsValid;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import com.homework.fifth_homework.date_validator.DateIsValid;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.homework.fifth_homework.DateValidator;
+package com.homework.fifth_homework.date_validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,8 +1,6 @@
-package com.homework.fifth_homework.Controller;
+package com.homework.fifth_homework.controller;
 
-import com.homework.fifth_homework.Person.Person;
-import com.homework.fifth_homework.Person.Printer;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.homework.fifth_homework.person.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

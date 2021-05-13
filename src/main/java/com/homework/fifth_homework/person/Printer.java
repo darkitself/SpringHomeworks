@@ -1,4 +1,4 @@
-package com.homework.fifth_homework.Person;
+package com.homework.fifth_homework.person;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;

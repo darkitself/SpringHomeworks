@@ -1,4 +1,4 @@
-package com.homework.fifth_homework.Handler;
+package com.homework.fifth_homework.handler;
 
 public class Response {
     private String message;
