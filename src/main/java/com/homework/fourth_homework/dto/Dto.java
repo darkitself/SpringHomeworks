@@ -1,13 +1,15 @@
 package com.homework.fourth_homework.Dto;
 
+import java.math.BigDecimal;
+
 public class Dto {
-    public Double price;
+    public BigDecimal price;
     public Info info;
 
     public Dto() {
     }
 
-    public Dto(Double price, Info info) {
+    public Dto(BigDecimal price, Info info) {
         this.price = price;
         this.info = info;
     }
