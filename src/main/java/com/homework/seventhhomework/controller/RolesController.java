@@ -1,11 +1,11 @@
 package com.homework.seventhhomework.controller;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 
-import jdk.jfr.Unsigned;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,18 +20,17 @@ public class RolesController {
 
     @GetMapping("/support/api")
     @RolesAllowed("ROLE_SUPPORT")
-    public String supportApi() {
-        return getCurrentUser();
+    public String supportApi(@AuthenticationPrincipal User user) {
+        return getCurrentUser(user);
     }
 
     @GetMapping("/admin/api")
     @RolesAllowed("ROLE_ADMIN")
-    public String adminApi() {
-        return getCurrentUser();
+    public String adminApi(@AuthenticationPrincipal User user) {
+        return getCurrentUser(user);
     }
 
-    private String getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return auth.getName() + ": " + auth.getAuthorities().stream().map(Object::toString).collect(Collectors.joining(" "));
+    private String getCurrentUser(User user) {
+        return user.getUsername() + ": " +  user.getAuthorities().stream().map(Object::toString).collect(Collectors.joining(" "));
     }
 }
