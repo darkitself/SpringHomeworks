@@ -1,5 +1,7 @@
 package com.homework.eighthhomework.entities;
 
+import org.springframework.validation.annotation.Validated;
+
 import javax.persistence.*;
 
 @Entity

@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @Service
 public class ToDoListService {
@@ -24,14 +26,15 @@ public class ToDoListService {
     @Transactional
     public void save(ToDoListDto toDoListDto) {
         ToDoList toDoList = toDoListRepository.save(new ToDoList(toDoListDto.getName()));
-        eventsRepository.saveAll(toDoListDto.getEvents().stream()
+        List<Event> events = toDoListDto.getEvents().stream()
                 .map(ev -> new Event(ev, toDoList))
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
+        eventsRepository.saveAll(events);
     }
 
     public List<ToDoListDto> getAll() {
-        List<ToDoListDto> res = new LinkedList<>();
-        toDoListRepository.findAll().forEach(tdl -> res.add(new ToDoListDto(tdl)));
-        return res;
+        return StreamSupport.stream(toDoListRepository.findAll().spliterator(), false)
+                .map(ToDoListDto::new)
+                .collect(Collectors.toList());
     }
 }
